@@ -1,6 +1,6 @@
-const errorHandlerMiddleware_81 = (err, req, res, netx) => {
-    console.log('error', err.stack);
-    res.status(500).json({ msg: 'there is an error' });
+const errorHandlerMiddleware_81 = (err, req, res, next) => {
+    console.log('error', err.message);
+    res.status(500).json({ msg: 'there is an error', err: err });
 
 };
 
