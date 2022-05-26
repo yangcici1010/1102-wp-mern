@@ -1,8 +1,5 @@
 // CommonJS
-
 // const express = require('express')
-
-
 
 // ES6
 
@@ -16,8 +13,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-
-
+import 'express-async-errors'
+import morgan from 'morgan'
 import connectDB_81 from './db/connect_81.js';
 import authRoutes_81 from './routes/authRoutes_81.js'
 
@@ -25,6 +22,10 @@ import authRoutes_81 from './routes/authRoutes_81.js'
 //middleware
 import notFoundMiddleware_81 from './middleware/not-found_81.js';
 import errorHandler_81 from './middleware/error-handler_81.js';
+
+if (process.env.NODE_ENV !== 'production') {
+   app.use(morgan('dev'));
+}
 
 app.use(express.json());
 

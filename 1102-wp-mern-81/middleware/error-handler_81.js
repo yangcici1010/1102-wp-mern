@@ -1,6 +1,8 @@
+import { StatusCodes } from "http-status-codes";
+
 const errorHandlerMiddleware_81 = (err, req, res, next) => {
     console.log('error', err.message);
-    res.status(500).json({ msg: 'there is an error', err: err });
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'there is an error', err: err });
 
 };
 
