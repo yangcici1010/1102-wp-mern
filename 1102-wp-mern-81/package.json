@@ -1,25 +1,28 @@
 {
-  "name": "1102-wp-mern-06",
+  "name": "1102-wp-mern-81",
   "version": "1.0.0",
   "description": "",
   "main": "server_81.js",
   "type": "module",
   "scripts": {
-    "start": "node server_81.js",
+    "server": "nodemon server_81.js --ignore client_81",
+    "client":"npm start --prefix client_81",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "dev": "nodemon server_81.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1013LIANGHUA/1102-wp-mern-06.git"
+    "url": "git+https://github.com/1013LIANGHUA/1102-wp-mern-81.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/1013LIANGHUA/1102-wp-mern-06/issues"
+    "url": "https://github.com/1013LIANGHUA/1102-wp-mern-81/issues"
   },
-  "homepage": "https://github.com/1013LIANGHUA/1102-wp-mern-06#readme",
+  "homepage": "https://github.com/1013LIANGHUA/1102-wp-mern-81#readme",
   "devDependencies": {
+    "concurrently": "^7.2.1",
     "nodemon": "^2.0.15"
   },
   "dependencies": {

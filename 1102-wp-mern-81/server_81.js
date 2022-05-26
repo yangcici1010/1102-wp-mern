@@ -29,9 +29,15 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use(express.json());
 
+// app.use(function (req, res, next) {
+//    res.header("Access-Control-Allow-Origin", "localhost:3000"); // update to match the domain you will make the request from
+//    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//    next();
+// });
+
 app.get('/', (req, res) => {
    throw new Error('testing for error')
-   res.send('Welcome cici 209410181');
+   res.send('Welcome cici 209410181--');
 
 });
 
