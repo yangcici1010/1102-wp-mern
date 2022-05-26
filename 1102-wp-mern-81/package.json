@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "server": "nodemon server_81.js --ignore client_81",
-    "client":"npm start --prefix client_81",
+    "client": "npm start --prefix client_81",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "dev": "nodemon server_81.js"
   },
@@ -28,6 +28,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
