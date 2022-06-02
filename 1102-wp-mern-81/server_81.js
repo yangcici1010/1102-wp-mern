@@ -34,8 +34,14 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-   throw new Error('testing for error')
-   res.send('Welcome cici 209410181--');
+   //throw new Error('testing for error')
+   res.json('Welcome cici 209410181--');
+
+});
+
+app.get('/api/v1', (req, res) => {
+   //throw new Error('testing for error')
+   res.json('API V1 -- Welcome cici 209410181--');
 
 });
 
