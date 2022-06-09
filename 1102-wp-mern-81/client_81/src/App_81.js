@@ -12,6 +12,7 @@ function App_81() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/register" element={<Register_81 />} />
         <Route path="/" element={<Dashboard_81 />} />
         <Route path='/landing' element={<Landing_81 />} />
         <Route path='/testcors' element={<TestFetchUseCors_81 />} />

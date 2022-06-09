@@ -15,9 +15,9 @@ const TestFetchUseProxy_81 = async () => {
 
     try {
         const currentUser = {
-            "name": "yangcici11",
-            "email": "123333336@gmail.com",
-            "password": "secret11"
+            "name": "cc2",
+            "email": "cc2@gmail.com",
+            "password": "secret22"
 
         };
         const { data } = await axios.post('/api/v1/auth_81/register_81',
