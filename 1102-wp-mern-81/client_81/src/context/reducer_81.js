@@ -10,8 +10,10 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
+  LOGOUT_USER,
+  TOGGLE_SIDEBAR,
 } from './action_81';
-
+import { initialState } from "./appContext_81"
 const reducer_81 = (state, action) => {
   if (action.type === DISPLAY_ALERT) {
     return {
@@ -108,8 +110,19 @@ const reducer_81 = (state, action) => {
       alertText: action.payload.msg,
     };
   }
-
+  if (action.type === LOGOUT_USER) {
+    return {
+      ...initialState,
+    };
+  }
+  if (action.type === TOGGLE_SIDEBAR) {
+    return {
+      ...state,
+      showSidebar: !state.showSidebar,
+    };
+  }
   throw new Error(`no such action: ${action.type}`);
 };
 
 export default reducer_81;
+//

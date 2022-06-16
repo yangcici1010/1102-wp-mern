@@ -11,6 +11,7 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
   LOGOUT_USER,
+  TOGGLE_SIDEBAR,
 } from './action_81';
 const initialState = {
   isLoading: false,
@@ -20,6 +21,7 @@ const initialState = {
   user: null,
   token: null,
   location: '',
+  showSidebar: false,
 };
 const token = localStorage.getItem('token');
 const user = localStorage.getItem('user');
@@ -84,7 +86,7 @@ const AppProvider_81 = ({ children }) => {
   const axiosLogin = async ({ currentUser, endPoint, alertText }) => {
     try {
       const { data } = await axios.post(
-        `/api/v1/auth_81/${endPoint}​`,
+        `/api/v1/auth_81/${endPoint}`,
         currentUser
       );
       //   console.log('login data', data);
@@ -116,13 +118,31 @@ const AppProvider_81 = ({ children }) => {
     }
     clearAlert();
   };
+
+
+
   const logoutUser = async () => {
     dispatch({ type: LOGOUT_USER });
     removeUserFromLocalStorage();
   };
+
+  const toggleSidebar = async () => {
+    dispatch({ type: TOGGLE_SIDEBAR });
+  };
+  const Updated = async({ name, email, lastName, location }) => {
+    
+  };
+
   return (
     <AppContext_81.Provider
-      value={{ ...state, displayAlert, clearAlert, registerUser, loginUser }}
+      value={{
+        ...state,
+        displayAlert,
+        clearAlert,
+        registerUser,
+        loginUser,
+        toggleSidebar,
+      }}
     >
       {children}
     </AppContext_81.Provider>

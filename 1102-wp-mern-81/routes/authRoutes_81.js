@@ -10,12 +10,10 @@ router.route('/').get((req, res) => {
     res.send('hii');
 });
 
-router.route('/register_81').get(register_81);
+import authenticateUser_81 from "../middleware/auth_81.js"
 
 router.route('/register_81').post(register_81);
 router.route('/login_81').post(login_81);
-router.route('/updateUser_81').post(updateUser_81);
+router.route('/updateUser_81').patch(authenticateUser_81, updateUser_81);
 
 export default router;
-
-//123
