@@ -2,35 +2,48 @@ import axios from 'axios';
 import { useEffect } from 'react';
 
 const TestFetchUseCors_81 = () => {
-    useEffect(() => {
-        const fetchData = async () => {
-            console.log('test');
-            const response = await fetch('http://localhost:5000');
-            const data1 = await response.json();
-            console.log('fetch api data', data1);
+  const fetchData1 = async () => {
+    const response = await fetch('http://localhost:5000');
+    const data1 = await response.json();
+    console.log('fetch data1', data1);
+  };
 
-            const data2 = await axios.get('http://localhost:5000');
-            console.log('axios data2', data2);
+  const fetchData2 = async () => {
+    const data2 = await axios.get('http://localhost:5000');
+    console.log('axios data2', data2.data);
+  };
 
-            try {
-                const currentUser = {
-                    "name": "yangcici",
-                    "email": "1234156@gmail.com",
-                    "password": "secret"
+  const fetchData3 = async () => {
+    const currentUser = {
+      name: 'htchung20',
+      email: 'htchung20@gms.tku.edu.tw',
+      password: 'secret20',
+    };
 
-                };
-                const { data } = await axios.post('http://localhost:5000/api/v1/auth_81/register_81',
-                    currentUser
-                );
-                console.log("register", data)
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        fetchData();
+    try {
+      const { data } = await axios.post(
+        'http://localhost:5000/api/v1/auth_81/register_81',
+        currentUser
+      );
+      console.log('register data', data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-    }, []);
+  useEffect(() => {
+    fetchData1();
+  }, []);
 
-    return (<div />);
+  useEffect(() => {
+    fetchData2();
+  }, []);
+
+  useEffect(() => {
+    fetchData3();
+  }, []);
+
+  return <div></div>;
 };
+
 export default TestFetchUseCors_81;
